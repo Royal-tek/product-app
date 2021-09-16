@@ -13,7 +13,7 @@ class Product(models.Model):
     hunter = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return [self.title, self.pub_date]
+        return self.title
 
     def summary(self):
         return self.body[:100]

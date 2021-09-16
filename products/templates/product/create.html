@@ -1,0 +1,28 @@
+{%extends 'base.html' %}
+
+{%block content%}
+
+
+    <div class = "container">
+        {% if error %}
+            <p class = "text-uppercase text-center text-muted  bg-dark p-3 my-3 ">{{error}}</p>
+        {%endif%}
+        <h1 class = "text-center text-uppercase py-3 my-3 text-warning">Create</h1>
+        <form method = "POST" action = "{% url 'create' %}" class = "d-flex align-items-center justify-content-center flex-column" enctype = multipart/form-data>
+                {% csrf_token %}
+            <input type= "text" class = "form-control w-50 my-2" placeholder = "Title:" name = "title">
+
+            <input type= "text" class = "form-control w-50 my-2" placeholder = "Url:" name = "url">
+
+            <textarea class = "form-control" style = "max-width:41vw; height:100px;resize:none;" name = "body" placeholder = "Enter Description:"></textarea>
+
+            <label for="icon" class="btn btn-info mt-2">Select Icon</label>
+            <input id="icon" style="display:none;" type="file" name = "icon">
+
+            <label for="image" class="btn btn-info mt-2">Select Image</label>
+            <input id="image" style="display:none;" type="file" name = "image">
+
+            <input type = "submit" class = "btn btn-danger my-2" value = "Sign Up">
+        </form>
+    </div>
+{%endblock%}
